@@ -18,9 +18,6 @@ switch(nargin)
         disp('cyanus(''nspec_9MeV_in_withCd.mat'',[300,300,1])');
         disp('    ----Calculate specified activation case (one gram of each element)');
         disp('        [irradiation time, cooling time, measurement time] in seconds');
-        disp('cyanus({''earth'';''Kenneth''},''nspec_9MeV_in_withCd.mat'',[300,300,1])');
-        disp('    ----Calculate specified activation case (use built-in specimen)');
-        disp('        {.xlsx filename;sheet name}, spec, times');
         disp('cyanus(''Au'',1,''nspec_9MeV_in_withCd.mat'',[300,300,1])');
         disp('    ----Calculate specified activation case (single element)');
         disp('cyanus({''Au'';''Al''},[1;2],''nspec_9MeV_in_withCd.mat'',[300,300,1])');
@@ -86,7 +83,7 @@ switch(nargin)
             disp('Loading spec...');
             load(fullfile(cyanus_path,'data','spec_neutron',specName));
         end
-        
+
         table_specimen = ...
             readtable(fullfile(cyanus_path,'data','specimen','fake.xlsx'),...
             'Sheet','allonegram');
@@ -108,7 +105,7 @@ switch(nargin)
     case 3
         % Execute with built-in specimen, spec and times
         table_specimen = ...
-            readtable(fullfile(cyanus_path,'data','specimen',[varargin{1}{1},'.xlsx']),...
+            readtable(fullfile(cyanus_path,'data','specimen',varargin{1}{1}),...
             'Sheet',varargin{1}{2});
         specName = varargin{2};
         if isnumeric(specName) && size(specName,2)>=2
@@ -123,11 +120,6 @@ switch(nargin)
             disp('Loading spec...');
             load(fullfile(cyanus_path,'data','spec_neutron',specName));
         end
-        ttt = varargin{3};
-        
-        [table_gamma,table_gamma_element_tot,...
-            table_gamma_element_max] = ...
-            cyanus_specimen(table_specimen,[spec_neutron(:,1),spec_neutron(:,2)],ttt);
         
     case 4
         % Execute with user defined elements, masses, spec and times
