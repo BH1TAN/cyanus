@@ -1,7 +1,5 @@
 function [table_specimen,table_gamma] = cyanus(varargin)
 % The entrance of CYANUS function
-% Valid input format:
-%   cyanus('nspec')
 tic;
 cyanus_path = which('cyanus');
 cyanus_path = cyanus_path(1:end-17);
@@ -14,7 +12,7 @@ switch(nargin)
         disp('cyanus(''nspec'')');
         disp('    ----Show the built-in neutron spectrums');
         disp('cyanus(''test1'')');
-        disp('    ----Run the comparasion with Yule1965''s reactor results ');
+        disp('    ----Run the comparison with Yule1965''s reactor results ');
         disp('cyanus(''nspec_9MeV_in_withCd.mat'',[300,300,1])');
         disp('    ----Calculate specified activation case (one gram of each element)');
         disp('        [irradiation time, cooling time, measurement time] in seconds');
