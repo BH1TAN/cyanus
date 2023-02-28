@@ -1,4 +1,4 @@
-%% 读取衰变数据
+%% 读取在线数据库的所有衰变数据
 % http://nucleardata.nuclear.lu.se/
 % url like
 % Au198

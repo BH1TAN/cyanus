@@ -39,7 +39,7 @@ for i = 1:length(pos)
 end
 for i = 1:length(pos)
     if xs(pos(i),1)==xs(pos(i)+1,1)
-        % 微调后依旧没错开则直接删除
+        % 微调后依旧没错开则直接删除该点
         xs(pos(i),[1 2])=[0 0];
     end
 end

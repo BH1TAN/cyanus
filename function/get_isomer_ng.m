@@ -1,8 +1,8 @@
 function table_isomer_ng = get_isomer_ng(tally_all_element,spec_neutron)
 % generate isomer_ng.xlsx for TINAA from talys
-% 注意：当前只考虑了n,g反应，舍弃了talys给出的其它反应道
+% 注意：当前只考虑了(n,g)反应，舍弃talys给出的其它反应道
 % 注意：talys给出的isomer xs 和用numdot算的结果有区别，需明确isomer xs具体含义
-% TODO: 本代码基于生成TINAA v0.1中的isomer_ng.xlsx，并不优雅，
+% TODO: 本代码基于TINAA v0.1中的isomer_ng.xlsx，需要优化
 % 下一步可改成直接生成table_active，并对应调整TINAA主程序代码
 % 
 % INPUT:
