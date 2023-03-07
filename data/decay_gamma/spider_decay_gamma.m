@@ -4,6 +4,7 @@
 % Au198
 % http://nucleardata.nuclear.lu.se/toi/nuclide.asp?iZA=790198
 % http://nucleardata.nuclear.lu.se/toi/nuclide.asp?iZA=790498
+
 clear;close all;fclose all;
 load('list_isotope.mat','list_isotope');
 list_za=[];

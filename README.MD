@@ -1,6 +1,12 @@
+---
+title: CYANUS README
+date: 2023-02-28 19:30:00
+author: Tongyuan
+---
+
 ![image](image/logo_long.png)
 ======
-![License](https://img.shields.io/badge/License-GPL%203.0-brightgreen)  ![Wish](https://img.shields.io/badge/PHD-Fighting-red)
+![License](https://img.shields.io/badge/License-GPL%203.0-brightgreen) 
 
 CYANUS (a Calculator for Yield Analysis of NeUtron Activation) is a MATLAB tool for calculating the energies and intensities of delayed gamma-rays released by neutron irradiated samples. 
 
@@ -16,7 +22,20 @@ CYANUS allows the user to arbitrarily designate the pointwised neutorn spectrum,
 ## Quick start
 1. Add the folder `function` to MATLAB search path.
 2. Run `cyanus()` in the command window, several input forms to run CYANUS will appear. 
-3. Results are saved to `cyanus-output.mat` in the working path. The variable `table_gamma` shows all the possible delayed gamma-rays and their count in the measurement time period.
+3. Results are saved to `cyanus-output.mat` in the working path. The variable `table_gamma` contains all the possible delayed gamma-rays and their count in the measurement time period. Other variables and their meanings are listed below
+
+|Variable|Description|
+|----|----|
+| spec_neutron | Pointwised neutron spectrum (User input) |
+| table_active | Probabilities that neutron irradiated isotopes reach different isoeric states |
+| table_decay | List of produced radioactive isotopes, their halflives and saturation quantity |
+| table_element | Elements and their masses, intermediate variable of CYANUS |
+| table_gamma | All the delayed gamma-rays and their counts |
+| table_gamma_element | The total counts of gamma-rays released by each element |
+| table_gamma_element_max | The count of gamma-ray with the highest intensity of each element |
+| table_isotope | Mole number of each isotope |
+| table_specimen | List of elements and masses (User input) |
+| ttt | Irradiation time, cooling time and measurement time (User input) |
 
 ## Physical priciple
 When irradiated by neutrons, the stable isotope $^AX$ may capture a neutron and form the isotope $^{A+1,s}X$ ($s$ represents the long lived state, $g$ for ground state, $m1$ for the first isomer and $m2$ for the second isomer). The production rate is
@@ -151,7 +170,7 @@ CYANUS 将上述公式整合，计算了 5730个$\gamma$射线的 $C_{\gamma}$ �
 
 ## 关于本程序
 
-在攻读博士期间，面对需要判断不同核素在中子照射后释放的伽马能量和强度关系的问题，我最初是通过手机软件“核素导览”查找截面和伽马射线信息后，在草稿纸上手算的方式进行，十分低效。2022年，博士开题后，根据评审专家的建议，我决定整理公开数据库中有关中子活化问题的核数据，并编写一个便捷的计算软件，以辅助向更复杂问题，例如多元素环境下各能区信本比随时间的变化规律等，进行深入探索。经过内部的数轮迭代，本程序功能基本正确，与[Yule 1965年](https://pubs.acs.org/doi/10.1021/ac60220a034)的反应堆实验结果有比较好的对应。由于遵循着“先完成再完美”的信条，当前程序功能正确但编写不甚规范。现在，“完成”已经基本告一段落，“完美”将陆续实现。
+在攻读博士期间，面对需要判断不同核素在中子照射后释放的伽马能量和强度关系的问题，我早年是在手机软件“核素导览”上查找截面和伽马射线射线强度等信息后，手算所需的计数和计数率等信息，低效而且无法说清同质异能态产生的情况。这种计算对例如In等同质异能素的gamma射线占主导的核素基本上是不可用的。2022年，博士开题后，根据评审专家的建议，我决定整理公开数据库中有关中子活化问题的核数据，并编写一个便捷的计算软件，以辅助向更复杂问题，例如多元素环境下各能区信本比随时间的变化规律等，进行深入探索。经过内部的数轮迭代，本程序功能基本正确，与[Yule 1965年](https://pubs.acs.org/doi/10.1021/ac60220a034)的反应堆实验结果有比较好的对应。由于遵循着“先完成再完美”的信条，当前程序功能正确但编写不甚规范。现在，“完成”已经基本告一段落，“完美”将陆续实现。
 
 热忱欢迎核技术爱好者或从业者协助完善本程序。
 

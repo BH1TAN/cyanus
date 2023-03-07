@@ -1,4 +1,4 @@
-function [] = processbar(thisNum,max,modmod)
+function [] = processbar(thisNum,max,modnum)
 % Show the process bar in the console
 if thisNum == 1
     fprintf(['[          ] ','  0 %%']);
@@ -8,7 +8,7 @@ elseif thisNum == max
     end
     fprintf(['[==========] ','100 %%\n']);
 else
-    if mod(thisNum,modmod)==0
+    if mod(thisNum,modnum)==0
         for j = 1:18
             fprintf('%c',8); % delete printed content
         end

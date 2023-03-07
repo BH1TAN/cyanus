@@ -1,5 +1,5 @@
 function msg = checkcyanusinput(spec,input_path)
-% 验证spec是否在input_path文件夹下被归档预计算
+% 验证spec和相关档案是否曾经被计算并保存在input_path文件夹下
 % 若已经预计算，输出计算结果的.mat文件名
 % 若未被预计算，输出:保存即将进行的计算的结果的matlab命令
 

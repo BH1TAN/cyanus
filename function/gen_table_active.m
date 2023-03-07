@@ -1,4 +1,4 @@
-function table_active = gen_table_active(cyanuspath,table_isotope,spec_neutron,method)
+function table_active = gen_table_active(cyanuspath,table_isotope,spec_neutron)
 % generate isotope table for code CYANUS
 % Input:
 % table_isotope: produced by prepWizard.m
@@ -24,24 +24,16 @@ for i = 1:size(table_active,1) % Each isotope
     else
         % Energy unit of spec_neutron and xs should be the same
         table_active{i,'intint'} = numint(spec_neutron,xs);
-        %table_active{i,'intint'} = numdot(spec_neutron,xs,0);
     end
     processbar(i,size(table_active,1),10);
 end
 
 %% calculating isomeric ratios
 disp('Filling in the probmeta of table_active');
-switch method
-    case 1
-        table_active = compoundNuc(table_active);
-    case 2
-        load(fullfile(cyanuspath,'data','isomer_n_gamma.mat'));
-        isomer_ng = get_isomer_ng(tally_all_element,spec_neutron); 
-        % isomer_ng: target name, isomeric ratio 1,2,3
-        table_active = combine_table_active(table_active,isomer_ng);
-    otherwise
-        
-end
+load(fullfile(cyanuspath,'data','isomer_n_gamma.mat'));
+isomer_ng = get_isomer_ng(tally_all_element,spec_neutron);
+% isomer_ng: target name, isomeric ratio 1,2,3
+table_active = combine_table_active(table_active,isomer_ng);
 
 end
 
