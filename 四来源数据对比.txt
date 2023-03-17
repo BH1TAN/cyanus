@@ -1,0 +1,33 @@
+WISE 没有考虑m态的情况：
+Sc-46 Co-60 Se-81 Rb-88 Sr-89 Nb-94 Cd-117 In-114 Sn-121Cs-134 Eu-152 Dy-165 Er-171 Lu-177 Hf-181 
+
+
+NIST 结果独一份：
+Cr-55，其它3个是Cr-51
+Pr-142m,    Pr-142
+Ir-192m     Ir-194
+
+Yule 独一份：
+Cu-64 Rh-104m Sn-125 Hg-199m Pb-207m
+
+CYANUS 独一份（重点研究）
+Sb-124m
+
+互不一致：
+Kr Xe Os 
+
+cyanus和wise一致，另两个一致
+Ta-182
+
+cyanus和yule实验一致，和别的不一致：（需要看一下核素活度和发射率的问题）
+Fe59，两个在线计算器是Fe-55
+Zn-69m，另两个是Zn-69
+Ga-72,      Ga-70
+Ge-75m,   Ge-75
+Y-90m,     Y-90 
+Pd-109m 
+Yb-177m 
+
+WISE 和实验一致，别的不一致
+Gd-159， nist和cyanus是Gd-161
+Re-188              Re-188m

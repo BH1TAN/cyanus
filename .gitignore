@@ -1,4 +1,5 @@
 conference*
+benchmark
 New Folder
 releases
 thesis*
@@ -6,9 +7,11 @@ logo
 软著
 bkup
 spyder*
-*.txt
+update log.txt
+
 *.opju
 四来源数据对比.xlsx
 *.pptx
 *.input_*.mat
 *快捷方式
+*lnk

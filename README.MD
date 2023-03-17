@@ -17,7 +17,7 @@ CYANUS allows the user to arbitrarily designate the pointwised neutorn spectrum,
 ## Highlight
 1. Pointwised neutron spectra are avaliable.
 2. The isomer production ratios for isotopes irradiated by neutrons with different energies are taken into consideration.
-3. Easy to deploy, add the folder to the MATLAB path, then start the work.
+3. Easy to deploy, add the folder to the MATLAB path, then start.
 
 ## Quick start
 1. Add the folder `function` to MATLAB search path.
@@ -166,7 +166,7 @@ CYANUS 将上述公式整合，计算了 5730个$\gamma$射线的 $C_{\gamma}$ �
 | $t_{cool}$ | 冷却时长 | 用户输入 |
 | $t_{meas}$ | 测量时长 | 用户输入 |
 
-表格中的核数据在文件夹 `data` 中。
+表格中的核数据位于文件夹 `data` 中。
 
 ## 关于本程序
 
