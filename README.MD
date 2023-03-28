@@ -47,7 +47,7 @@ $$
 In which
     $N$ = The number of $^{A+1,s}X$ in the sample
     $N_0$ = The number of $^AX$ in the sample
-    $R_{I,s}$ = The isomeric ratio (the probability of producing isomer $^{A+1,s}X$ after $^AX$ absorbs a neutron). It is also used for standing for the ratio to form the ground state nucleus, which is definitely not an isomer, for the convenience.
+    $R_{I,s}$ = The probability of producing isomer $^{A+1,s}X$ after $^AX$ absorbs a neutron.
     $\sigma(E)$ = The (n, γ) cross section of $^AX$ for neutrons with energy  
     $\phi(E)$ = The flux of irradiating neutrons with energy from $E$ to $E+dE$
     $\lambda$ = The decay constant of $^{A+1,s}X$

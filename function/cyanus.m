@@ -56,7 +56,7 @@ switch(nargin)
             return
         elseif strcmp(varargin,'test1')
             % run test1
-            load(fullfile(cyanus_path,'data','spec_neutron','n_thermal.mat'));
+            load(fullfile(cyanus_path,'data','spec_neutron','nspec_thermal.mat'));
             spec_neutron(:,2) = spec_neutron(:,2) * 4.3e12;
             table_specimen = ...
                 readtable(fullfile(cyanus_path,'data','specimen','fake.xlsx'),...

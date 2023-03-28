@@ -16,16 +16,17 @@ table_active{:,'a'} = table_active{:,'a'}+1;
 
 %% calculate integral
 disp('Calculating the xs and flux integral(intint) of table_active');
+load(fullfile(cyanuspath,'data','xs_n_gamma.mat'));
 for i = 1:size(table_active,1) % Each isotope
-    xs = readtable(fullfile(cyanuspath,'data','xs_n_gamma',[table_active.Properties.RowNames{i},'.txt']));
-    xs = table2array(xs);
-    if isempty(xs)
-        table_active{i,'intint'} = 0;
-    else
-        % Energy unit of spec_neutron and xs should be the same
-        table_active{i,'intint'} = numint(spec_neutron,xs);
-    end
     processbar(i,size(table_active,1),10);
+    isotope = table_active.Properties.RowNames{i};
+    try
+        eval(['xs = xs_n_gamma.',isotope,';']);
+    catch
+        % He4 没有截面数据
+        continue;
+    end
+    table_active{i,'intint'} = numint(spec_neutron,xs);
 end
 
 %% calculating isomeric ratios
