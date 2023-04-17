@@ -30,7 +30,8 @@ function [table_specimen,table_gamma] = cyanus(varargin)
 %     ----Show the built-in neutron spectrums
 % cyanus('test1')
 %     ----Run the comparison with Yule1965's reactor results
-%
+% cyanus('clear')
+%     ----Clear the stored integrations of cross sections and neutron flux.
 
 cyanus_path = which('cyanus');
 cyanus_path = cyanus_path(1:end-17);
@@ -54,6 +55,9 @@ switch(nargin)
             disp('Check built_in_neutron_spec:');
             table(file_name,flux_tot,flux_supCd)
             return
+        elseif strcmp(varargin,'clear')
+            % clear stored input files
+            delete(fullfile(cyanus_path,'data','cyanus_input\*'));
         elseif strcmp(varargin,'test1')
             % run test1
             load(fullfile(cyanus_path,'data','spec_neutron','nspec_thermal.mat'));
@@ -69,13 +73,13 @@ switch(nargin)
             gammaMax = [table_gamma_element_max{:,'z'},table_gamma_element_max{:,'ngamma'}];
             load(fullfile(cyanus_path,'data','ref_Yule.mat'));
             figure;
-            semilogy(table_gamma_element_max{:,'z'},table_gamma_element_max{:,'ngamma'},'k.-');
+            semilogy(table_gamma_element_max{:,'z'},table_gamma_element_max{:,'ngamma'},'ro-');
             hold on; grid on
-            semilogy(sensitivity_Yule(:,1),sensitivity_Yule(:,2),'ro-');
+            semilogy(sensitivity_Yule(:,1),sensitivity_Yule(:,2),'k.-');
             xlim([5 80]);
             xlabel('Z');
             ylabel('Sensitivity(cps/g)');
-            legend({'Yule';'CYANUS'},'Location','best');
+            legend({'CYANUS';'Yule'},'Location','best');
         else
             disp('CYANUS: Invalid input. run cyanus() to see the hints');
         end
@@ -129,7 +133,6 @@ switch(nargin)
     otherwise
         
 end
-
 disp('CYANUS finish! Load cyanus-output.mat to check the results');
 end
 

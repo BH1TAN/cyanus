@@ -9,10 +9,9 @@ function table_active = gen_table_active(cyanuspath,table_isotope,spec_neutron)
 % todo: Modify this function if (g,n),(g,p) and other reactions needs
 % to be considered
 %
-spec_neutron = [spec_neutron(:,1)*1e6,spec_neutron(:,2)]; % units to eV
 table_active = table_isotope;
 table_active{:,'intint'}=0;
-table_active{:,'a'} = table_active{:,'a'}+1;
+table_active{:,'a'} = table_active{:,'a'}+1; % 中子俘获后质量数+1
 
 %% calculate integral
 disp('Calculating the xs and flux integral(intint) of table_active');
@@ -26,7 +25,12 @@ for i = 1:size(table_active,1) % Each isotope
         % He4 没有截面数据
         continue;
     end
-    table_active{i,'intint'} = numint(spec_neutron,xs);
+    if isempty(xs)
+        xs = [1e-6,0;2e10,0];
+    end
+    % disp(isotope);
+    table_active{i,'intint'} = ...
+        numint([spec_neutron(:,1)*1e6,spec_neutron(:,2)],xs); 
 end
 
 %% calculating isomeric ratios

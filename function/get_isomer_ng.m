@@ -1,13 +1,13 @@
 function table_isomer_ng = get_isomer_ng(tally_all_element,spec_neutron)
-% generate isomer_ng.xlsx for TINAA from talys
+% generate isomer_ng.xlsx for CYANUS from talys
 % 注意：当前只考虑了(n,g)反应，舍弃talys给出的其它反应道
 % 注意：talys给出的isomer xs 和用numdot算的结果有区别，需明确isomer xs具体含义
-% TODO: 本代码基于TINAA v0.1中的isomer_ng.xlsx，需要优化
+% TODO: 本代码基于isomer_ng.xlsx，需要优化
 % 下一步可改成直接生成table_active，并对应调整TINAA主程序代码
 % 
 % INPUT:
 %    tally_all_element: from read_talys_output_folder
-%    spec_neutron: two columns(MeV nv/lethargy)
+%    spec_neutron: two columns(MeV , nv/lethargy)
 % OUTPUT:
 %    table_active: see variable explanation excel sheet
 %
@@ -25,7 +25,6 @@ for i = 1:size(residual,1)
     thisRes = residual{i,1};
     thisPart = tally_all_element(find(strcmp(tally_all_element{:,'isotope_o'},thisRes)),:);
     thisIRMat = [thisPart{:,'EMeV'},thisPart{:,'ir'}];
-    thisIRMat(:,1) = thisIRMat(:,1)*1e6;
     ir_ave = averageIR(thisIRMat,spec_neutron);
     tmp = isstrprop(thisRes,'digit');
     if tmp(end)==1

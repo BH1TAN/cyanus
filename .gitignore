@@ -8,10 +8,14 @@ logo
 bkup
 spyder*
 update log.txt
-
 *.opju
 四来源数据对比.xlsx
 *.pptx
-*.input_*.mat
+cyanus_input*.mat
 *快捷方式
 *lnk
+相关工作
+2023*
+Yield_Comparison_v1.txt
+rsps*
+xs_n_gamma-CNAF1.0.mat  # file too large

@@ -7,7 +7,7 @@ function intint = numint(spe,xs,n_bin)
 %     注意： spe和xs能量轴单位需统一
 %            spe能点中，大于xs最大能点的点，对应的截面视为xs最大能点处的截面
 % Output:
-%     intint(1): 截面与注量的数值积分值
+%     intint: 截面与注量的数值积分值
 
 switch nargin
     case 2
@@ -25,8 +25,8 @@ if isempty(xs)||isempty(spe)
     return;
 end
 if spe(1,1)<xs(1,1)
-    % 低于最小能量的截面视为最小能量对应截面
-    xs = [spe(1,1)/2,xs(1,1);xs];
+    % 低于最小能量的截面按1/v关系寻找
+    xs = [spe(1,1),xs(1,2)*sqrt(xs(1,1))/sqrt(spe(1,1));xs];
 end
 if xs(end,1)<spe(end,1)
     % 高于最大能量的截面视为最大能量对应截面
@@ -43,12 +43,12 @@ for i = 1:length(pos)
         xs(pos(i),[1 2])=[0 0];
     end
 end
-xs = sortrows(xs,1);
 xs = xs(find(xs(:,1)>0),:);
+xs = sortrows(xs,1);
 pt = linspace(log(spe(1,1)),log(spe(end,1)),n_bin)'; % 对数等间隔取能点
 xs2 = interp1(xs(:,1),xs(:,2),exp(pt));
 spe2 = interp1(log(spe(:,1)),cumsum(spe(:,2)),pt);
-spe2 = diff([spe2(1);spe2]);
+spe2 = diff([0;spe2]);
 intint = xs2'*spe2;
 
 end

@@ -11,8 +11,8 @@ matIR = [0,matIR(1,2);matIR]; % matIR最低能量以下的IR视为最低能量�
 % energy range in matIR should cover the maximum energy in neutron
 % spectrum, or the estimation of isomeric ratio will be bad.
 
-% 计算各能点IR，但由于spec的能点一般是bin的右边界，而非bin的平均值，
-% 本算法会有微小偏差
+% 计算各能点IR，
+% 由于spec的能点一般是bin的右边界，而非bin的平均值，本算法会有微小偏差
 spec(:,3) = interp1(matIR(:,1),matIR(:,2),spec(:,1)); 
 ir_ave = spec(:,2)'*spec(:,3)/sum(spec(:,2));
 if isnan(ir_ave)
