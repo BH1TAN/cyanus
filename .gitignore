@@ -18,4 +18,5 @@ cyanus_input*.mat
 2023*
 Yield_Comparison_v1.txt
 rsps*
-xs_n_gamma-CNAF1.0.mat  # file too large
+# file too large
+xs_n_gamma-CNAF1.0.mat 
