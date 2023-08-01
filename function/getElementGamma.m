@@ -8,14 +8,15 @@ function [gamma_tot,gamma_max] = getElementGamma(table_gamma)
 %% gamma_max
 table_gamma = sortrows(table_gamma,[3,-8]); % sort by z and gamma intensity
 [~,ia,~] = unique(table_gamma{:,'z'});
-gamma_max = table_gamma(ia,{'radioisotope','z','halflife_s','energy_MeV','branch','ngamma'});
+gamma_max = table_gamma(ia,{'radioisotope','z','a','halflife_s','energy_MeV','branch','ngamma'});
 gamma_max.Properties.VariableNames{1}='element';
 gamma_max.Properties.RowNames = gamma_max{:,'element'};
-for i = 1:size(gamma_max,1) % Delete the A and state in element name
+for i = 1:size(gamma_max,1) 
+    % Only keep the Element symbol
     thisEle = gamma_max{i,'element'}{1};
     tmp = isstrprop(thisEle,'alpha');
     tmp(1,end) = 0; % 删除可能存在的能级符号
-    gamma_max{i,'element'}{1} = thisEle(find(tmp));
+    gamma_max{i,'element'}{1} = thisEle(find(tmp)); 
 end
 
 %% gamma_tot 

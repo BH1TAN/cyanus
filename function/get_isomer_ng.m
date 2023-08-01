@@ -1,4 +1,4 @@
-function table_isomer_ng = get_isomer_ng(tally_all_element,spec_neutron)
+function table_isomer_ng = get_isomer_ng(isomer_n_gamma,spec_neutron)
 % generate isomer_ng.xlsx for CYANUS from talys
 % 注意：当前只考虑了(n,g)反应，舍弃talys给出的其它反应道
 % 注意：talys给出的isomer xs 和用numdot算的结果有区别，需明确isomer xs具体含义
@@ -13,17 +13,17 @@ function table_isomer_ng = get_isomer_ng(tally_all_element,spec_neutron)
 %
 % 测试代码：clear;load('isotopesAndNeutronSpec.mat');load('tally_all_element.mat');table_isomer_ng = gen_table_isomer_ng(tally_all_element,spec_neutron)
 % 使用有镉：clear;load('isotopesAndNeutronSpec.mat');load('nspec_9MeV_in_withCd.mat');load('tally_all_element.mat');table_isomer_ng = gen_table_isomer_ng(tally_all_element,spec_neutron)
-tally_all_element(find(tally_all_element{:,'z_i'}~=tally_all_element{:,'z_o'}),:)=[];
-tally_all_element(find(tally_all_element{:,'a_i'}+1~=tally_all_element{:,'a_o'}),:)=[];
-tally_all_element(find(tally_all_element{:,'a_i'}+1~=tally_all_element{:,'a_o'}),:)=[];
+isomer_n_gamma(find(isomer_n_gamma{:,'z_i'}~=isomer_n_gamma{:,'z_o'}),:)=[];
+isomer_n_gamma(find(isomer_n_gamma{:,'a_i'}+1~=isomer_n_gamma{:,'a_o'}),:)=[];
+isomer_n_gamma(find(isomer_n_gamma{:,'a_i'}+1~=isomer_n_gamma{:,'a_o'}),:)=[];
 
 % tally_all_element 只保留n,g反应道
 targetList = [];
 prob1=[];prob2=[];prob3=[];
-residual = unique(tally_all_element{:,'isotope_o'},'stable'); % 子核
+residual = unique(isomer_n_gamma{:,'isotope_o'},'stable'); % 子核
 for i = 1:size(residual,1)
     thisRes = residual{i,1};
-    thisPart = tally_all_element(find(strcmp(tally_all_element{:,'isotope_o'},thisRes)),:);
+    thisPart = isomer_n_gamma(find(strcmp(isomer_n_gamma{:,'isotope_o'},thisRes)),:);
     thisIRMat = [thisPart{:,'EMeV'},thisPart{:,'ir'}];
     ir_ave = averageIR(thisIRMat,spec_neutron);
     tmp = isstrprop(thisRes,'digit');

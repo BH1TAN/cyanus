@@ -10,7 +10,7 @@ a = [];
 stat = cell(0,0);
 int_part = [];
 disp('Storing the decay parameters of table_decay');
-load(fullfile(cyanuspath,'data','nubase_light.mat'));
+load(fullfile(cyanuspath,'data','nubase.mat'));
 for i = 1:size(table_active,1)
     for j = 1:3
         thisCompound=table_active{i,'compound'}{1,j};

@@ -21,7 +21,11 @@ if strncmp(msg,'save',4)
     table_decay = gen_table_decay(cyanus_path,table_active);
     disp('Success: Prepared table_decay');
     
+    load(fullfile(cyanus_path,'data','decay_info.mat'));
     table_gamma = gen_table_gamma(cyanus_path,table_decay);
+    table_gamma1 = gen_table_gamma_lev1(cyanus_path,decay_info_lev1);
+    table_gamma2 = gen_table_gamma_lev2(cyanus_path,decay_info_lev2);
+    disp('Success: Prepared table_gamma');
 
     eval(msg);
     input_name = msg(6:end);

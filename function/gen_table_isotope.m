@@ -18,8 +18,10 @@ switch method
         table_isotope = table_isotope(:,2:end);
         table_isotope.Properties.RowNames = rowNames;
     case 2
-        load(fullfile(cyanuspath,'data','nubase_light.mat'));
+        load(fullfile(cyanuspath,'data','nubase.mat'));
         nubase = nubase(find(nubase{:,'abun'}~=0),:);
+        % nubase = nubase(find(nubase{:,'zzz'}>=1),:);
+        % nubase = nubase(find(nubase{:,'zzz'}<=82),:);
         z = nubase{:,'zzz'};
         a = nubase{:,'aaa'};
         abun = nubase{:,'abun'};

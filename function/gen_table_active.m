@@ -36,7 +36,7 @@ end
 %% calculating isomeric ratios
 disp('Filling in the probmeta of table_active');
 load(fullfile(cyanuspath,'data','isomer_n_gamma.mat'));
-isomer_ng = get_isomer_ng(tally_all_element,spec_neutron);
+isomer_ng = get_isomer_ng(isomer_n_gamma,spec_neutron);
 % isomer_ng: target name, isomeric ratio 1,2,3
 table_active = combine_table_active(table_active,isomer_ng);
 

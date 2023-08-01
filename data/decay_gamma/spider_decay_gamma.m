@@ -12,7 +12,7 @@ list_decaygamma = cell(0,0);
 for i = 14:size(list_isotope,1)
     thisZ = list_isotope{i,'Z'};
     tryA0 = list_isotope{i,'A'};
-    tryA = [tryA0-1:tryA0+1];
+    tryA = [tryA0-3:tryA0+3];
     for j = 1:length(tryA)
         readwritewebdecay(thisZ,tryA(j),'');
         readwritewebdecay(thisZ,tryA(j),'m');

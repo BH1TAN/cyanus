@@ -1,8 +1,8 @@
-function [] = processbar(thisNum,max,modnum)
+function [] = processbar(thisNum,maxmax,modnum)
 % Show the process bar in the console
 if thisNum == 1
     fprintf(['[          ] ','  0 %%']);
-elseif thisNum == max
+elseif thisNum == maxmax
     for j = 1:18
         fprintf('%c',8); % delete printed content
     end
@@ -12,7 +12,7 @@ else
         for j = 1:18
             fprintf('%c',8); % delete printed content
         end
-        num = floor(thisNum/max*10);
+        num = floor(thisNum/maxmax*10);
         fprintf('[');
         for j = 1:num
             fprintf('=');
@@ -21,7 +21,7 @@ else
             fprintf(' ');
         end
         fprintf('] ');
-        fprintf('%3d',round(thisNum/max*100));
+        fprintf('%3d',round(thisNum/maxmax*100));
         fprintf(' %%');
     end
 end

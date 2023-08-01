@@ -11,4 +11,6 @@ File:
     isomer_n_gamma_v0.1.mat: backup
     nubase_light.mat: NUBASE2020 data for isotopes.
     ref_Yule.mat: Yule's experimental gamma-ray yield results studied with the reactor. 
+    decay_info.mat: Contains the radioisotopes which have parent radioisotopes. Retrived from NUBASE2020 
+
     
