@@ -51,7 +51,6 @@ end
 %% Fill in table_gamma, table_gamma1, table_gamma2
 % Fill in table_gamma
 disp('cyanus_specimen: filling table_gamma (task 4/4)');
-% table_gamma{:,'ngamma'} = 0; % 为啥删除了就不行
 table_gamma{:,'nsat'} = table_decay{table_gamma{:,'radioisotope'},'nsat'};
 decayConst = log(2)./table_gamma{:,'halflife_s'};
 table_gamma{:,'ngamma'} = ...
@@ -99,7 +98,8 @@ table_gamma2 = sortrows(table_gamma2,-columnNum); % sort by gamma intensity
 
 % Organizing gamma-rays for each element
 disp('cyanus_specimen: organizing gamma for each element');
-[table_gamma_element_tot,table_gamma_element_max] = getElementGamma(table_gamma); % 分元素总伽马
+[table_gamma_element_tot,table_gamma_element_max] = ...
+    getElementGamma(table_gamma); % 分元素总伽马
 
 %% Save
 disp('cyanus_specimen: Saving to cyanus-output.mat');
