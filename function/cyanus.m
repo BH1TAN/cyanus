@@ -78,8 +78,8 @@ switch(nargin)
             semilogy(sensitivity_Yule(:,1),sensitivity_Yule(:,2),'k.-');
             xlim([5 80]);
             xlabel('Z');
-            ylabel('Sensitivity(cps/g)');
-            legend({'CYANUS';'Yule'},'Location','best');
+            ylabel('Sensitivity (cps/g)');
+            legend({'CYANUS';'Yule (experiment)'},'Location','best');
         else
             disp('CYANUS: Invalid input. run cyanus() to see the hints');
         end

@@ -51,7 +51,7 @@ end
 %% Fill in table_gamma, table_gamma1, table_gamma2
 % Fill in table_gamma
 disp('cyanus_specimen: filling table_gamma (task 4/4)');
-table_gamma{:,'ngamma'} = 0;
+% table_gamma{:,'ngamma'} = 0; % 为啥删除了就不行
 table_gamma{:,'nsat'} = table_decay{table_gamma{:,'radioisotope'},'nsat'};
 decayConst = log(2)./table_gamma{:,'halflife_s'};
 table_gamma{:,'ngamma'} = ...

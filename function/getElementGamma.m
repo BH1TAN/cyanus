@@ -6,7 +6,9 @@ function [gamma_tot,gamma_max] = getElementGamma(table_gamma)
 % Output:
 %   table_gamma_element: Gamma count for each element
 %% gamma_max
-table_gamma = sortrows(table_gamma,[3,-8]); % sort by z and gamma intensity
+columnNum_z = find(strcmp(table_gamma.Properties.VariableNames, 'z')); % z的列号
+columnNum_ngamma = find(strcmp(table_gamma.Properties.VariableNames, 'ngamma')); % ngamma的列号
+table_gamma = sortrows(table_gamma,[columnNum_z,-columnNum_ngamma]); % sort by z and gamma intensity
 [~,ia,~] = unique(table_gamma{:,'z'});
 gamma_max = table_gamma(ia,{'radioisotope','z','a','halflife_s','energy_MeV','branch','ngamma'});
 gamma_max.Properties.VariableNames{1}='element';
